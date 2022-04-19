@@ -3,8 +3,19 @@
 ![node-16.14.2](https://img.shields.io/badge/node-16.14.2-green)
 ![react-18.0](https://img.shields.io/badge/react-18.0-56d4fa)
 
-22-1 클라우드컴퓨팅 텀프로젝트입니다.
-fork 후 각 기능을 구현, PR을 통해 main에 merge합니다.
+22-1 클라우드컴퓨팅 텀프로젝트입니다. fork 후 각 기능을 구현, PR을 통해 main에 merge합니다.
+
+## src 하위 디렉토리 구성
+
+1. assets
+   - 이미지, 비디오 등 미디어 파일
+2. components
+   - 공통 component 관리 (Header, Footer, Nav 등)
+3. pages
+   - 페이지 단위 컴포넌트 폴더 구성
+   - ex) Login - Login.js, Login css
+4. services
+   - 여러 page에 쓰이는 js 파일
 
 ---
 
