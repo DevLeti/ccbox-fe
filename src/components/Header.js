@@ -16,6 +16,13 @@ function Login() {
     </Nav.Link>
   );
 }
+function Logout() {
+  return (
+    <Nav.Link href="login" className="rounded bg-secondary text-white m-1 px-3">
+      로그아웃
+    </Nav.Link>
+  );
+}
 function Register() {
   return (
     <Nav.Link
@@ -47,17 +54,7 @@ export function Header() {
         <Nav className="ms-auto">
           <Login />
           <Register />
-          {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
-          </NavDropdown> */}
+          {/* <Logout /> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
