@@ -5,7 +5,7 @@ import "./Header.css";
 
 // TODO: useEffect를 사용해 localstorage의 JWT값이 있냐 없냐로 Login&Register 버튼 또는 Logout 버튼 구현
 function UserButton() {
-  const [JWT, checkLoggedin] = useState(localStorage.getItem("JWT"));
+  const [JWT] = useState(localStorage.getItem("JWT"));
   useEffect(() => {
     return () => {
       localStorage.setItem("JWT", JWT);
