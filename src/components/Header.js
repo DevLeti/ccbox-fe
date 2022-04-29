@@ -1,14 +1,27 @@
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  Button,
-  FormControl,
-} from "react-bootstrap";
+import { Fragment, useEffect, useState } from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import "./Header.css";
-// import React from "react";
+
+// TODO: useEffect를 사용해 localstorage의 JWT값이 있냐 없냐로 Login&Register 버튼 또는 Logout 버튼 구현
+function UserButton() {
+  const [JWT, checkLoggedin] = useState(localStorage.getItem("JWT"));
+  useEffect(() => {
+    return () => {
+      localStorage.setItem("JWT", JWT);
+    };
+  });
+  if (JWT !== "null" && JWT !== undefined) {
+    return <Logout />;
+  } else {
+    return (
+      <Fragment>
+        <Login />
+        <Register />
+      </Fragment>
+    );
+  }
+}
 function Login() {
   return (
     <Nav.Link href="login" className="rounded bg-secondary text-white m-1 px-3">
@@ -18,7 +31,11 @@ function Login() {
 }
 function Logout() {
   return (
-    <Nav.Link href="login" className="rounded bg-secondary text-white m-1 px-3">
+    <Nav.Link
+      href="login"
+      className="rounded bg-secondary text-white m-1 px-3"
+      onClick={() => localStorage.removeItem("JWT")}
+    >
       로그아웃
     </Nav.Link>
   );
@@ -52,8 +69,9 @@ export function Header() {
       <Navbar.Collapse id="basic-navbar-nav">
         {/* ms-auto: 우측, me-auto: 좌측 정렬 */}
         <Nav className="ms-auto">
-          <Login />
-          <Register />
+          <UserButton />
+          {/* <Login />
+          <Register /> */}
           {/* <Logout /> */}
         </Nav>
       </Navbar.Collapse>
