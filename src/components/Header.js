@@ -5,13 +5,24 @@ import "./Header.css";
 
 // TODO: useEffect를 사용해 localstorage의 JWT값이 있냐 없냐로 Login&Register 버튼 또는 Logout 버튼 구현
 function UserButton() {
-  const [JWT] = useState(localStorage.getItem("JWT"));
+  function checkNull() {
+    if (
+      localStorage.getItem("JWT") === "null" ||
+      localStorage.getItem("JWT") == null
+    ) {
+      return null;
+    } else {
+      return localStorage.getItem("JWT");
+    }
+  }
+  const [JWT] = useState(checkNull);
   useEffect(() => {
     return () => {
       localStorage.setItem("JWT", JWT);
     };
   });
-  if (JWT !== "null" && JWT !== undefined) {
+  // eslint-disable-next-line
+  if (JWT != undefined) {
     return <Logout />;
   } else {
     return (
@@ -32,7 +43,7 @@ function Login() {
 function Logout() {
   return (
     <Nav.Link
-      href="login"
+      href="/"
       className="rounded bg-secondary text-white m-1 px-3"
       onClick={() => localStorage.removeItem("JWT")}
     >
@@ -70,9 +81,6 @@ export function Header() {
         {/* ms-auto: 우측, me-auto: 좌측 정렬 */}
         <Nav className="ms-auto">
           <UserButton />
-          {/* <Login />
-          <Register /> */}
-          {/* <Logout /> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
