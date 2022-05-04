@@ -1,14 +1,15 @@
 import { Fragment } from "react";
+import { Button } from "react-bootstrap";
 import white_cloud from "../../assets/NonUserMain/white-cloud.png";
 import search from "../../assets/NonUserMain/search.png";
 import user from "../../assets/NonUserMain/user.png";
 import artist from "../../assets/NonUserMain/artist.png";
 import "./NonUserMain.css";
-function MainTop() {
+const MainTop = () => {
   return (
-    <div className="non-user-main-top">
+    <div className="main-top">
       <div id="left">
-        <img src={white_cloud} id="left" alt="cloud_image" />
+        <img src={white_cloud} alt="cloud_image" />
       </div>
       <div id="right">
         <span id="top">언제, 어디서든.</span>
@@ -17,14 +18,14 @@ function MainTop() {
       </div>
     </div>
   );
-}
-function MainMiddle() {
+};
+const MainMiddle = () => {
   return (
-    <div className="non-user-main-middle">
-      <div className="top">
-        <p id="middle-page-title">Features</p>
+    <div className="main-middle" id="middle">
+      <div id="top">
+        <div id="middle-page-title">Features</div>
       </div>
-      <div className="bottom">
+      <div id="bottom">
         <div className="feature">
           <div className="feature-img-title">
             <img src={user} className="feature-img" alt="file_share" />
@@ -67,10 +68,29 @@ function MainMiddle() {
       </div>
     </div>
   );
-}
-function MainBottom() {}
+};
+// TODO: 회원가입 버튼이 회원가입 페이지로 넘어가게 설정
+const MainBottom = () => {
+  return (
+    <div className="main-bottom">
+      <div id="upper">
+        <div id="left">
+          <span>간단한 회원가입으로</span>
+          <br />
+          <span>시작하세요.</span>
+        </div>
+        <div id="right">
+          <Button variant="primary">회원가입</Button>
+        </div>
+      </div>
+      <div id="footer">
+        <span>2022. CCBOX, All Copyrights Reserved.</span>
+      </div>
+    </div>
+  );
+};
 
-export function Main() {
+const NonUserMain = () => {
   return (
     <Fragment>
       <MainTop />
@@ -78,4 +98,6 @@ export function Main() {
       <MainBottom />
     </Fragment>
   );
-}
+};
+
+export { NonUserMain };
