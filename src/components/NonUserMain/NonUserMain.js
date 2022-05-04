@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import { Button } from "react-bootstrap";
-import white_cloud from "../../assets/NonUserMain/white-cloud.png";
-import search from "../../assets/NonUserMain/search.png";
-import user from "../../assets/NonUserMain/user.png";
-import artist from "../../assets/NonUserMain/artist.png";
+import white_cloud from "../../assets/image/NonUserMain/white-cloud.png";
+import search from "../../assets/image/NonUserMain/search.png";
+import user from "../../assets/image/NonUserMain/user.png";
+import artist from "../../assets/image/NonUserMain/artist.png";
 import "./NonUserMain.css";
 const MainTop = () => {
   return (
