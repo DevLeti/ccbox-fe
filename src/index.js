@@ -4,13 +4,16 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./components/Header/Header";
+import { BrowserRouter } from 'react-router-dom';
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
-    <App />
+    <BrowserRouter>
+      <Header />
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
