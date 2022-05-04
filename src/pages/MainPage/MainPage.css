@@ -1,0 +1,98 @@
+.main-layout{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-block {
+    width: 82%;
+    height: 100vh;
+    padding: 1.5rem;
+}
+
+.path-block {
+    display: flex;
+    align-items: center;
+}
+
+.directory-list {
+    margin-right: 2rem;
+}
+
+.directory-path {
+    color: #4c4c4c;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.dir-current {
+    background-color: rgba(77, 175, 255, 0.25);
+    padding: 0.3rem 0.1rem;
+}
+
+.highlight-block {
+    background-color: #F7F5F1;
+    width: 10rem;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.high-red {
+    color: #FF0000;
+}
+
+.high-blue {
+    color: #0000FF;
+}
+
+.high-green {
+    color: #019B01;
+}
+
+.high-yellow {
+    color: #ffc900;
+}
+
+.buttons-block {
+    margin-top: 1rem;
+    display: flex;
+    width: 25rem;
+    justify-content: space-between;
+}
+
+.border-line {
+    font-size: 1.5rem;
+}
+
+.button-align {
+    display: flex;
+    align-items: center;
+}
+
+.icon-margin {
+    margin-left: 0.3rem;
+}
+
+.filelist-block {
+    margin-top: 1.5rem;
+}
+
+.file-name {
+    display: flex;
+    align-items: center;
+}
+
+.mg-right {
+    margin-right: 0.5rem;
+}
+
+.file-check {
+    zoom: 1.4;
+}
+
+.logo-image {
+    width: 1rem;
+}
