@@ -65,7 +65,7 @@ function Register() {
 export function Header() {
   return (
     // py-0~5 높이 조절
-    <Navbar bg="white" expand="lg" className="py-0 p-2">
+    <Navbar bg="white" expand="lg" className="fixed-top py-0 p-2">
       <Navbar.Brand href="/" className="mb-0">
         <img
           alt="logo"
