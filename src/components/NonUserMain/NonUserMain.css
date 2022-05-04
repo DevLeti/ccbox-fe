@@ -1,0 +1,48 @@
+/* 비로그인 상단 */
+.non-user-main-top {
+  min-height: 100vh;
+  background-color: #8fbaff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.non-user-main-top #left img {
+  max-width: 550px;
+  max-height: 412px;
+}
+
+.non-user-main-top #right {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 800;
+  line-height: 115%;
+}
+
+/* 비로그인 중단 */
+.non-user-main-middle {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.non-user-main-middle .bottom {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.non-user-main-middle .top {
+  flex-grow: 1;
+}
+
+#middle-page-title {
+  font-size: 65px;
+  text-align: center;
+}
+
+.feature-img {
+  max-width: 5vw;
+}
