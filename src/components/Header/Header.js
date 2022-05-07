@@ -4,8 +4,8 @@ import logo from "../../assets/image/logo.png";
 import "./Header.css";
 
 // TODO: useEffect를 사용해 localstorage의 JWT값이 있냐 없냐로 Login&Register 버튼 또는 Logout 버튼 구현
-function UserButton() {
-  function checkNull() {
+const UserButton = () => {
+  const checkNull = () => {
     if (
       localStorage.getItem("JWT") === "null" ||
       localStorage.getItem("JWT") == null
@@ -14,7 +14,7 @@ function UserButton() {
     } else {
       return localStorage.getItem("JWT");
     }
-  }
+  };
   const [JWT] = useState(checkNull);
   useEffect(() => {
     return () => {
@@ -32,15 +32,15 @@ function UserButton() {
       </Fragment>
     );
   }
-}
-function Login() {
+};
+const Login = () => {
   return (
     <Nav.Link href="login" className="rounded bg-secondary text-white m-1 px-3">
       로그인
     </Nav.Link>
   );
-}
-function Logout() {
+};
+const Logout = () => {
   return (
     <Nav.Link
       href="/"
@@ -50,8 +50,8 @@ function Logout() {
       로그아웃
     </Nav.Link>
   );
-}
-function Register() {
+};
+const Register = () => {
   return (
     <Nav.Link
       href="register"
@@ -61,11 +61,11 @@ function Register() {
       회원가입
     </Nav.Link>
   );
-}
-export function Header() {
+};
+const Header = () => {
   return (
     // py-0~5 높이 조절
-    <Navbar bg="white" expand="lg" className="py-0 p-2">
+    <Navbar bg="white" expand="lg" className="fixed-top py-0 p-2">
       <Navbar.Brand href="/" className="mb-0">
         <img
           alt="logo"
@@ -85,4 +85,6 @@ export function Header() {
       </Navbar.Collapse>
     </Navbar>
   );
-}
+};
+
+export { Header };
