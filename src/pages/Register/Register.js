@@ -35,6 +35,7 @@ const Register = () => {
       e.stopPropagation();
       setValidated(true);
     } else {
+      // TODO: Register API, 중복 체크 API 등등
     }
   };
   return (
@@ -120,4 +121,4 @@ const Register = () => {
   );
 };
 
-export { Register };
+export default Register;

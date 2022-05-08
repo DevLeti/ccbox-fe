@@ -22,6 +22,7 @@ const Login = () => {
       e.stopPropagation();
       setValidated(true);
     } else {
+      // TODO: 로그인 API
     }
   };
   return (
@@ -64,4 +65,4 @@ const Login = () => {
   );
 };
 
-export { Login };
+export default Login;
