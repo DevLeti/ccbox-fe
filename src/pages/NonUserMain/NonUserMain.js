@@ -100,4 +100,4 @@ const NonUserMain = () => {
   );
 };
 
-export { NonUserMain };
+export default NonUserMain;
