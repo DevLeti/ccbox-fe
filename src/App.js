@@ -1,16 +1,15 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import logo from "./assets/image/logo.png";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import MainPage from './pages/MainPage/MainPage';
+import MainPage from "./pages/MainPage/MainPage";
 
 function App() {
   return (
-  <>
-    <Routes>
-      <Route element={<MainPage />} path="/" exact />
-    </Routes>
-  </>
+    <>
+      <Routes>
+        <Route element={<MainPage />} path="/" exact />
+      </Routes>
+    </>
   );
 }
 

@@ -1,7 +1,6 @@
 /* 비로그인 상단 */
 .main-top {
-  padding-top: 66px;
-  min-height: 100vh;
+  min-height: calc(100vh - 66px);
   background-color: #8fbaff;
   color: #fff;
   display: flex;
