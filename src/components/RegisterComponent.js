@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import "./Register.css";
+import "../styles/Register.css";
 
 const RegisterComponent = ({ id, username, email, password, confirmPassword, samePassword, validated, onChangeId, onChangeUsername, onChangeEmail, onChangePassword, onChangeConfirmPassword, handleSubmit }) => {
   return (

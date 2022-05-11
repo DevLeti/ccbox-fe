@@ -11,7 +11,7 @@ import PptLogo from "../assets/image/presentation_logo.png";
 import VideoLogo from "../assets/image/video_logo.png";
 import Sidebar from "../common/Sidebar/Sidebar";
 
-const MainPageComponent = () => {
+const MainPageComponent = ({openModal}) => {
     return (
         <div className="main-layout">
             <Sidebar />
@@ -30,7 +30,7 @@ const MainPageComponent = () => {
                     </div>
                 </div>
                 <div className="buttons-block">
-                    <Button variant="primary" className="button-align">업로드 <ImArrowUp className="icon-margin"/></Button>
+                    <Button variant="primary" className="button-align" onClick={openModal}>업로드 <ImArrowUp className="icon-margin"/></Button>
                     <Button variant="light">폴더생성</Button>
                     <span className="border-line">|</span>
                     <Button variant="light">파일공유</Button>
