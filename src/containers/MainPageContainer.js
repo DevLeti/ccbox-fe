@@ -1,18 +1,33 @@
 import {React, useState} from 'react';
 import MainPageComponent from '../components/MainPageComponent';
 import FileUploadComponent from '../components/FileUploadComponent';
+import CreateDirComponent from '../components/CreateDirComponent';
 
 const MainPageContainer = () => {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [uploadOpen, setUploadOpen] = useState(false);
+    const [createDirOpne, setCreateDirOpen] = useState(false);
 
-    const openModal = () => {
-        setModalOpen(true);
+    const openUpload = () => {
+        setUploadOpen(true);
     };
-    const closeModal = () => {
-        setModalOpen(false);
+    const closeUpload = () => {
+        setUploadOpen(false);
     };
 
-    return (<><MainPageComponent openModal={openModal}/><FileUploadComponent open={modalOpen} close={closeModal}/></>)
+    const openCreateDir = () => {
+        setCreateDirOpen(true);
+    };
+    const closeCreateDir = () => {
+        setCreateDirOpen(false);
+    };
+
+    return (
+        <>
+            <MainPageComponent openUpload={openUpload} openCreateDir={openCreateDir} />
+            <FileUploadComponent open={uploadOpen} close={closeUpload}/>
+            <CreateDirComponent open={createDirOpne} close={closeCreateDir}/>
+        </>
+    );
 };
 
 export default MainPageContainer;

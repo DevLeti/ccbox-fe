@@ -1,15 +1,16 @@
 import React from 'react';
 import { IoMdClose } from "react-icons/io";
 import '../styles/FileUpload.css';
+import '../styles/ModalStyle.css';
 import uploadIcon from '../assets/image/file_upload.png';
 
 const FileUploadComponent = ( props ) => {
-  // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, header } = props;
+  // 열기, 닫기를 부모로부터 받아옴
+  const { open, close } = props;
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
-    <div className={open ? 'open-modal upload-modal' : 'upload-modal'}>
+    <div className={open ? 'open-modal modal' : 'modal'}>
       {open ? (
         <div className='upload-block'>
             <div className='block-top'>
