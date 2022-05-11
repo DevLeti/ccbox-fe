@@ -20,7 +20,9 @@
 5. pages
    - 컨테이너 반환
    - ex) LoginPage
-6. services
+6. styles
+   - component에 쓰이는 스타일
+7. services
    - 여러 page에 쓰이는 js 파일
 
 ---
