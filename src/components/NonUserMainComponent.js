@@ -4,7 +4,8 @@ import white_cloud from "../../assets/image/NonUserMain/white-cloud.png";
 import search from "../../assets/image/NonUserMain/search.png";
 import user from "../../assets/image/NonUserMain/user.png";
 import artist from "../../assets/image/NonUserMain/artist.png";
-import "./NonUserMain.css";
+import "../styles/NonUserMain.css";
+
 const MainTop = () => {
   return (
     <div className="main-top">
@@ -90,7 +91,7 @@ const MainBottom = () => {
   );
 };
 
-const NonUserMain = () => {
+const NonUserMainComponent = () => {
   return (
     <Fragment>
       <MainTop />
@@ -100,4 +101,4 @@ const NonUserMain = () => {
   );
 };
 
-export default NonUserMain;
+export default NonUserMainComponent;

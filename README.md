@@ -9,12 +9,18 @@
 
 1. assets
    - 이미지, 비디오 등 미디어 파일
-2. components
+2. common
    - 공통 component 관리 (Header, Footer, Nav 등)
-3. pages
-   - 페이지 단위 컴포넌트 폴더 구성
-   - ex) Login - Login.js, Login css
-4. services
+3. components
+   - 페이지 UI 구성하는 컴포넌트
+   - ex) LoginComponent
+4. containers
+   - 컴포넌트의 상태 관리 및 API 연동
+   - ex) LoginContainer
+5. pages
+   - 컨테이너 반환
+   - ex) LoginPage
+6. services
    - 여러 page에 쓰이는 js 파일
 
 ---
