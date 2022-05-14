@@ -1,30 +1,8 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import "./Login.css";
+import "../styles/Login.css";
 
-const Login = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [validated, setValidated] = useState(false);
-
-  const onChangeId = (e) => {
-    setId(e.target.value);
-    setValidated(false);
-  };
-  const onChangePassword = (e) => {
-    setPassword(e.target.value);
-    setValidated(false);
-  };
-  const handleSubmit = (e) => {
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-      setValidated(true);
-    } else {
-      // TODO: 로그인 API
-    }
-  };
+const LoginComponent = ({id, password, validated, onChangeId, onChangePassword, handleSubmit}) => {
   return (
     <div className="login">
       <h2 className="login-title">로그인</h2>
@@ -65,4 +43,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginComponent;
