@@ -6,7 +6,7 @@ import ShareFileComponent from "../components/ShareFileComponent";
 
 const MainPageContainer = () => {
   const [uploadOpen, setUploadOpen] = useState(false);
-  const [createDirOpne, setCreateDirOpen] = useState(false);
+  const [createDirOpen, setCreateDirOpen] = useState(false);
   const [shareFileOpen, setShareFileOpen] = useState(false);
 
   const openUpload = () => {
@@ -38,7 +38,7 @@ const MainPageContainer = () => {
         openShareFile={openShareFile}
       />
       <FileUploadComponent open={uploadOpen} close={closeUpload} />
-      <CreateDirComponent open={createDirOpne} close={closeCreateDir} />
+      <CreateDirComponent open={createDirOpen} close={closeCreateDir} />
       <ShareFileComponent open={shareFileOpen} close={closeShareFile} />
     </>
   );
