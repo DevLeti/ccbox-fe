@@ -1,0 +1,28 @@
+.create-block {
+  width: 50%;
+  height: 45%;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.create-section {
+  width: 100%;
+  height: 60%;
+}
+
+.input-box {
+  display: block;
+  width: 100%;
+  height: 2.2rem;
+  margin-top: 5rem;
+}
+
+.share-user-list {
+  margin-top: 0.5rem;
+}
+
+.create-button {
+  float: right;
+  margin-top: 1rem;
+}
