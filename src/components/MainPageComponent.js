@@ -11,7 +11,12 @@ import PptLogo from "../assets/image/presentation_logo.png";
 import VideoLogo from "../assets/image/video_logo.png";
 import Sidebar from "../common/Sidebar/Sidebar";
 
-const MainPageComponent = ({ openUpload, openCreateDir, openShareFile }) => {
+const MainPageComponent = ({
+  openUpload,
+  openCreateDir,
+  openShareFile,
+  openPreview,
+}) => {
   return (
     <div className="main-layout">
       <Sidebar />
@@ -90,7 +95,7 @@ const MainPageComponent = ({ openUpload, openCreateDir, openShareFile }) => {
                     value="yyy"
                     className="file-check mg-right"
                   />
-                  <span className="file-logo mg-right">
+                  <span className="file-logo mg-right" onClick={openPreview}>
                     <img
                       src={VideoLogo}
                       alt="img-logo"
