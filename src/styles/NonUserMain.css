@@ -100,7 +100,7 @@
 .main-bottom #right {
 }
 
-.main-bottom #right Button {
+#right-button {
   display: block;
   border-radius: 10px;
   padding: 20px 30px;

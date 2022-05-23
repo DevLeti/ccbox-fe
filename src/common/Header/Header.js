@@ -1,37 +1,17 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
+import { loggedInState } from "../../recoil/atom";
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../../assets/image/logo.png";
 import "./Header.css";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-// TODO: useEffect를 사용해 localstorage의 JWT값이 있냐 없냐로 Login&Register 버튼 또는 Logout 버튼 구현
-const UserButton = () => {
-  const checkNull = () => {
-    if (
-      localStorage.getItem("JWT") === "null" ||
-      localStorage.getItem("JWT") == null
-    ) {
-      return null;
-    } else {
-      return localStorage.getItem("JWT");
-    }
-  };
-  const [JWT] = useState(checkNull);
-  useEffect(() => {
-    return () => {
-      localStorage.setItem("JWT", JWT);
-    };
-  });
-  // eslint-disable-next-line
-  if (JWT != undefined) {
-    return <Logout />;
-  } else {
-    return (
-      <Fragment>
-        <Login />
-        <Register />
-      </Fragment>
-    );
-  }
+const NonUserButton = () => {
+  return (
+    <Fragment>
+      <Login />
+      <Register />
+    </Fragment>
+  );
 };
 const Login = () => {
   return (
@@ -41,11 +21,16 @@ const Login = () => {
   );
 };
 const Logout = () => {
+  let setloggedInState = useSetRecoilState(loggedInState);
+  let setloggedInStateFalse = () => {
+    localStorage.setItem("JWT", null);
+    setloggedInState(() => false);
+  };
   return (
     <Nav.Link
       href="/"
       className="rounded bg-secondary text-white m-1 px-3"
-      onClick={() => localStorage.removeItem("JWT")}
+      onClick={setloggedInStateFalse}
     >
       로그아웃
     </Nav.Link>
@@ -62,7 +47,9 @@ const Register = () => {
     </Nav.Link>
   );
 };
+
 const Header = () => {
+  const loggedIn = useRecoilValue(loggedInState);
   return (
     // py-0~5 높이 조절
     <Navbar bg="white" expand="lg" className="fixed-top py-0 p-2">
@@ -80,7 +67,8 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         {/* ms-auto: 우측, me-auto: 좌측 정렬 */}
         <Nav className="ms-auto">
-          <UserButton />
+          {loggedIn ? <Logout /> : null}
+          {!loggedIn ? <NonUserButton /> : null}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

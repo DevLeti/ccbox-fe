@@ -1,6 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.headers.common["Authorization"] = localStorage["JWT"]; // header Authorization 기본 설정
 
 /**
  * 파일 리스트를 불러옵니다.
@@ -9,7 +10,7 @@ axios.defaults.baseURL = "http://localhost:8000";
  */
 const getFileList = async () => {
   axios
-    .get("/files")
+    .get("/file/")
     .then((res) => {
       console.log(res.data);
       return res.data;
@@ -19,24 +20,38 @@ const getFileList = async () => {
 
 /**
  * 파일을 업로드 합니다.
- * @param {string} folder - 업로드 하는 파일의 폴더 id
- * @param {string} path - 업로드 하는 파일의 절대경로입니다.
+ * @param {string} folder - 업로드 하는 파일의 폴더 이름
+ * @param {file} file - 업로드 하는 파일 데이터입니다.
  * @param {string} fileName - 업로드 하는 파일의 이름입니다.
- * @param {number} isPublic - 업로드 하는 파일의 public 유무입니다. 0,1로 구분합니다.
  * @throws {number} non-200 HTTP status code
  * @returns {number} 200 HTTP status code
- * 현재 백엔드 api가 수정중이어서 이 코드도 변경되어야 합니다. formdata 관련 참고만 해주세요.
  */
-const uploadFileList = async (folder, path, fileName, isPublic) => {
+const uploadFile = async (folder, file, fileName) => {
   let formData = new FormData();
-  formData.append("Folder", folder); //formdata
-  formData.append("path", path);
+  formData.append("folder", folder); //formdata
+  formData.append("file", file);
   formData.append("file_name", fileName);
-  formData.append("IsPublic", isPublic);
   axios
-    .post("/files", formData)
+    .post("/file/upload/", formData)
     .then((res) => res.status)
     .catch((err) => err.response.status);
 };
 
-export { getFileList, uploadFileList };
+/**
+ * 파일을 삭제 합니다.
+ * @param {string} fileName - 삭제하는 파일의 이름입니다.
+ * @param {string} folder - 삭제하는 파일의 폴더 이름
+ * @throws {number} non-200 HTTP status code
+ * @returns {number} 200 HTTP status code
+ */
+const deleteFile = async (folder, fileName) => {
+  let formData = new FormData();
+  formData.append("file_name", fileName);
+  formData.append("folder", folder);
+  axios
+    .delete("/file/upload/", formData)
+    .then((res) => res.status)
+    .catch((err) => err.response.status);
+};
+
+export { getFileList, uploadFile, deleteFile };
