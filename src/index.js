@@ -5,14 +5,17 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./common/Header/Header";
 import { BrowserRouter } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
-      <App />
+      <RecoilRoot>
+        <Header />
+        <App />
+      </RecoilRoot>
     </BrowserRouter>
   </React.StrictMode>
 );

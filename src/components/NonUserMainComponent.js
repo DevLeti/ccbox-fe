@@ -81,7 +81,9 @@ const MainBottom = () => {
           <span>시작하세요.</span>
         </div>
         <div id="right">
-          <Button variant="primary">회원가입</Button>
+          <Button href="register" variant="primary" id="right-button">
+            회원가입
+          </Button>
         </div>
       </div>
       <div id="footer">

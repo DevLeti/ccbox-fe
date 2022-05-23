@@ -23,7 +23,7 @@ const ShareFileComponent = (props) => {
           <div className="create-section">
             <form>
               <input placeholder="유저명" className="input-box"></input>
-              <div className="share-user-list">공유 유저 리스트</div>
+              {/* <div className="share-user-list">공유 유저 리스트</div> */}
               <div className="create-button">
                 <Button variant="primary">파일공유</Button>
               </div>
