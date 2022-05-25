@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState, React } from "react";
+import { useEffect, useState, React } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
 import { ImArrowUp } from "react-icons/im";
 import { BiTrashAlt } from "react-icons/bi";
@@ -18,19 +18,19 @@ const MainPageComponent = ({
   openPreview,
 }) => {
   return (
-    <div className="main-layout">
+    <div className="main-layout fade-in-box">
       <Sidebar />
       <div className="main-block">
         <div className="path-block">
           <span className="directory-list">
-            <span className="directory-path">Root / </span>
-            <span className="directory-path">22-1 CCBOX / </span>
-            <span className="directory-path dir-current">프로토타입</span>
+            <span className="directory-path  dir-current">Root</span>
           </span>
           <div className="highlight-block">
-            <span className="circle-margin high-red">
-              <BsFillCircleFill size="18" />
-            </span>
+            <button>
+              <span className="circle-margin high-red">
+                <BsFillCircleFill size="18" />
+              </span>
+            </button>
             <span className="circle-margin high-blue">
               <BsFillCircleFill size="18" />
             </span>
@@ -38,6 +38,9 @@ const MainPageComponent = ({
               <BsFillCircleFill size="18" />
             </span>
             <span className="high-yellow">
+              <BsFillCircleFill size="18" />
+            </span>
+            <span className="high-white">
               <BsFillCircleFill size="18" />
             </span>
           </div>

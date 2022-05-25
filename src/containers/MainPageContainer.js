@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import { highlightState } from "../recoil/atom";
+import { useRecoilState } from "recoil";
 import MainPageComponent from "../components/MainPageComponent";
 import FileUploadComponent from "../components/FileUploadComponent";
 import CreateDirComponent from "../components/CreateDirComponent";

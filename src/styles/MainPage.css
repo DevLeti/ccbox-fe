@@ -1,3 +1,16 @@
+.fade-in-box {
+  display: inline-block;
+  animation: fadein 3s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .main-layout {
   display: flex;
   justify-content: space-around;
@@ -28,7 +41,7 @@
 
 .dir-current {
   background-color: rgba(77, 175, 255, 0.25);
-  padding: 0.3rem 0.1rem;
+  padding: 0.2rem 0.3rem;
 }
 
 .highlight-block {
@@ -41,19 +54,23 @@
 }
 
 .high-red {
-  color: #ff0000;
+  color: #ff4949;
 }
 
 .high-blue {
-  color: #0000ff;
+  color: #4343ff;
 }
 
 .high-green {
-  color: #019b01;
+  color: #2db22d;
 }
 
 .high-yellow {
-  color: #ffc900;
+  color: #ffd124;
+}
+
+.high-white {
+  color: #ffffff;
 }
 
 .buttons-block {

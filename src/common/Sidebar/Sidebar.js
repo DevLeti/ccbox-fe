@@ -5,17 +5,9 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="sidebar-background">
-      <div className="directory">
-        <IoIosArrowDown className="directory-icon" />
-        Root
-      </div>
-      <div className="directory mg-left-1">
-        <IoIosArrowDown className="directory-icon" />
-        22-1 CCBOX
-      </div>
-      <div className="directory mg-left-2 clicked">
+      <div className="directory clicked">
         <IoIosArrowForward className="directory-icon" />
-        프로토타입
+        Root
       </div>
     </div>
   );

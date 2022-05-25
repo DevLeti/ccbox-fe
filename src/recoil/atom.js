@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import { atom, RecoilBridge } from "recoil";
 
 // file upload
 export const fileUploadState = atom({
@@ -6,6 +6,7 @@ export const fileUploadState = atom({
   default: false,
 });
 
+// login state
 export const loggedInState = atom({
   key: "loggedIn",
   default: false,
