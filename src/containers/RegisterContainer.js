@@ -1,5 +1,6 @@
 import { useState } from "react";
 import RegisterComponent from "../components/RegisterComponent";
+import { registerUser } from "../apis/User";
 
 const RegisterContainer = () => {
   const [id, setId] = useState("");
@@ -34,6 +35,10 @@ const RegisterContainer = () => {
       e.stopPropagation();
       setValidated(true);
     } else {
+      e.preventDefault();
+      registerUser(id, email, password)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
       // TODO: Register API, 중복 체크 API 등등
     }
   };
