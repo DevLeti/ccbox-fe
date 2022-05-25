@@ -3,6 +3,8 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { ImArrowUp } from "react-icons/im";
 import { BiTrashAlt } from "react-icons/bi";
 import { Button, Table } from "react-bootstrap";
+import { highlightState } from "../recoil/atom";
+import { useRecoilValue } from "recoil";
 import "../styles/MainPage.css";
 import DocLogo from "../assets/image/doc_logo.png";
 import ExcelLogo from "../assets/image/excel_logo.png";
@@ -16,33 +18,50 @@ const MainPageComponent = ({
   openCreateDir,
   openShareFile,
   openPreview,
+  clickHighRed,
+  clickHighBlue,
+  clickHighGreen,
+  clickHighYellow,
+  clickHighNone,
 }) => {
+  const highlightValue = useRecoilValue(highlightState);
+
   return (
     <div className="main-layout fade-in-box">
       <Sidebar />
       <div className="main-block">
         <div className="path-block">
           <span className="directory-list">
-            <span className="directory-path  dir-current">Root</span>
+            <span className={"directory-path dir-current " + highlightValue}>
+              Root
+            </span>
           </span>
           <div className="highlight-block">
-            <button>
-              <span className="circle-margin high-red">
+            <button className="btn-styles" onClick={clickHighRed}>
+              <span className="high-red">
                 <BsFillCircleFill size="18" />
               </span>
             </button>
-            <span className="circle-margin high-blue">
-              <BsFillCircleFill size="18" />
-            </span>
-            <span className="circle-margin high-green">
-              <BsFillCircleFill size="18" />
-            </span>
-            <span className="high-yellow">
-              <BsFillCircleFill size="18" />
-            </span>
-            <span className="high-white">
-              <BsFillCircleFill size="18" />
-            </span>
+            <button className="btn-styles" onClick={clickHighBlue}>
+              <span className="high-blue">
+                <BsFillCircleFill size="18" />
+              </span>
+            </button>
+            <button className="btn-styles" onClick={clickHighGreen}>
+              <span className="high-green">
+                <BsFillCircleFill size="18" />
+              </span>
+            </button>
+            <button className="btn-styles" onClick={clickHighYellow}>
+              <span className="high-yellow">
+                <BsFillCircleFill size="18" />
+              </span>
+            </button>
+            <button className="btn-styles" onClick={clickHighNone}>
+              <span className="high-white">
+                <BsFillCircleFill size="18" />
+              </span>
+            </button>
           </div>
         </div>
         <div className="buttons-block">

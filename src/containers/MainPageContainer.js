@@ -41,6 +41,28 @@ const MainPageContainer = () => {
     setPreviewOpen(false);
   };
 
+  const [highlight, setHighlight] = useRecoilState(highlightState);
+
+  const clickHighRed = () => {
+    setHighlight("highlight-red");
+  };
+
+  const clickHighBlue = () => {
+    setHighlight("highlight-blue");
+  };
+
+  const clickHighGreen = () => {
+    setHighlight("highlight-green");
+  };
+
+  const clickHighYellow = () => {
+    setHighlight("highlight-yellow");
+  };
+
+  const clickHighNone = () => {
+    setHighlight("highlight-none");
+  };
+
   return (
     <>
       <MainPageComponent
@@ -48,6 +70,11 @@ const MainPageContainer = () => {
         openCreateDir={openCreateDir}
         openShareFile={openShareFile}
         openPreview={openPreview}
+        clickHighRed={clickHighRed}
+        clickHighBlue={clickHighBlue}
+        clickHighGreen={clickHighGreen}
+        clickHighYellow={clickHighYellow}
+        clickHighNone={clickHighNone}
       />
       <FileUploadComponent open={uploadOpen} close={closeUpload} />
       <CreateDirComponent open={createDirOpen} close={closeCreateDir} />

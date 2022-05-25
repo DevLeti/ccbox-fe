@@ -25,5 +25,24 @@
 
 .clicked {
   height: 1.7rem;
-  background-color: rgba(77, 175, 255, 0.25);
+}
+
+.highlight-red {
+  background-color: #ffcbcb;
+}
+
+.highlight-blue {
+  background-color: #dae4ff;
+}
+
+.highlight-green {
+  background-color: #d2eccc;
+}
+
+.highlight-yellow {
+  background-color: #ffe69c;
+}
+
+.highlight-none {
+  background-color: none;
 }

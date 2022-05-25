@@ -40,8 +40,32 @@
 }
 
 .dir-current {
-  background-color: rgba(77, 175, 255, 0.25);
   padding: 0.2rem 0.3rem;
+}
+
+.highlight-red {
+  background-color: #ffcbcb;
+}
+
+.highlight-blue {
+  background-color: #dae4ff;
+}
+
+.highlight-green {
+  background-color: #d2eccc;
+}
+
+.highlight-yellow {
+  background-color: #ffe69c;
+}
+
+.highlight-none {
+  background-color: none;
+}
+
+.btn-styles {
+  border: none;
+  background: none;
 }
 
 .highlight-block {
