@@ -2,7 +2,21 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "../styles/Register.css";
 
-const RegisterComponent = ({ id, username, email, password, confirmPassword, samePassword, validated, onChangeId, onChangeUsername, onChangeEmail, onChangePassword, onChangeConfirmPassword, handleSubmit }) => {
+const RegisterComponent = ({
+  id,
+  username,
+  email,
+  password,
+  confirmPassword,
+  samePassword,
+  validated,
+  onChangeId,
+  onChangeUsername,
+  onChangeEmail,
+  onChangePassword,
+  onChangeConfirmPassword,
+  handleSubmit,
+}) => {
   return (
     <div className="register">
       <h2 className="register-title">회원가입</h2>
