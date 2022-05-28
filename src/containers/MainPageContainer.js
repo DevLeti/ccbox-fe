@@ -1,5 +1,5 @@
-import { React, useState, useRef } from "react";
-import { highlightState } from "../recoil/atom";
+import { React, useState } from "react";
+import { highlightState, checkedFileState } from "../recoil/atom";
 import { useRecoilState } from "recoil";
 import MainPageComponent from "../components/MainPageComponent";
 import FileUploadComponent from "../components/FileUploadComponent";
@@ -65,6 +65,20 @@ const MainPageContainer = () => {
     setHighlight("highlight-none");
   };
 
+  // check된 항목 관리
+  const [checkedItems, setCheckedItems] = useRecoilState(checkedFileState);
+
+  const checkedItemHandler = (id, isChecked) => {
+    if (isChecked) {
+      checkedItems.add(id);
+      setCheckedItems(checkedItems);
+    } else if (!isChecked && checkedItems.has(id)) {
+      checkedItems.delete(id);
+      setCheckedItems(checkedItems);
+    }
+    console.log(checkedItems);
+  };
+
   return (
     <>
       <MainPageComponent
@@ -77,6 +91,7 @@ const MainPageContainer = () => {
         clickHighGreen={clickHighGreen}
         clickHighYellow={clickHighYellow}
         clickHighNone={clickHighNone}
+        checkedItemHandler={checkedItemHandler}
       />
       <FileUploadComponent open={uploadOpen} close={closeUpload} />
       <CreateDirComponent open={createDirOpen} close={closeCreateDir} />

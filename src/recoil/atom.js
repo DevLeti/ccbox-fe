@@ -1,4 +1,4 @@
-import { atom, RecoilBridge } from "recoil";
+import { atom } from "recoil";
 
 // login state
 export const loggedInState = atom({
@@ -52,4 +52,10 @@ export const fileListState = atom({
       access: "본인만",
     },
   ],
+});
+
+// checked file id state
+export const checkedFileState = atom({
+  key: "checkedfile",
+  default: new Set(),
 });

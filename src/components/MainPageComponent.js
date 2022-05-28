@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
 import { ImArrowUp } from "react-icons/im";
 import { BiTrashAlt } from "react-icons/bi";
@@ -13,8 +13,27 @@ import PptLogo from "../assets/image/presentation_logo.png";
 import VideoLogo from "../assets/image/video_logo.png";
 import Sidebar from "../common/Sidebar/Sidebar";
 
-const FileListComponent = ({ openPreview }) => {
+const CheckFileComponent = ({ filename, fileId, checkedItemHandler }) => {
+  const [bChecked, setChecked] = useState(false);
+  const checkHandler = (item, checked) => {
+    setChecked(!bChecked);
+    checkedItemHandler(item, checked);
+  };
+
+  return (
+    <input
+      type="checkbox"
+      name={filename}
+      value={fileId}
+      className="file-check mg-right"
+      onChange={(e) => checkHandler(fileId, e.target.checked)}
+    />
+  );
+};
+
+const FileListComponent = ({ openPreview, checkedItemHandler }) => {
   const files = useRecoilValue(fileListState);
+
   return (
     <Table responsive="md">
       <thead>
@@ -28,11 +47,10 @@ const FileListComponent = ({ openPreview }) => {
         {files.map((file) => (
           <tr>
             <td className="file-name">
-              <input
-                type="checkbox"
-                name="xxx"
-                value="yyy"
-                className="file-check mg-right"
+              <CheckFileComponent
+                filename={file.filename}
+                fileId={file.id}
+                checkedItemHandler={checkedItemHandler}
               />
               <div onClick={openPreview} className="point-cursor">
                 <span className="file-logo mg-right">
@@ -78,6 +96,7 @@ const MainPageComponent = ({
   clickHighGreen,
   clickHighYellow,
   clickHighNone,
+  checkedItemHandler,
 }) => {
   const highlightValue = useRecoilValue(highlightState);
 
@@ -139,7 +158,10 @@ const MainPageComponent = ({
           </Button>
         </div>
         <div className="filelist-block">
-          <FileListComponent openPreview={openPreview} />
+          <FileListComponent
+            openPreview={openPreview}
+            checkedItemHandler={checkedItemHandler}
+          />
         </div>
       </div>
     </div>
