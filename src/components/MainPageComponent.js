@@ -1,9 +1,9 @@
-import { useEffect, useState, React } from "react";
+import { React } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
 import { ImArrowUp } from "react-icons/im";
 import { BiTrashAlt } from "react-icons/bi";
 import { Button, Table } from "react-bootstrap";
-import { highlightState } from "../recoil/atom";
+import { fileListState, highlightState } from "../recoil/atom";
 import { useRecoilValue } from "recoil";
 import "../styles/MainPage.css";
 import DocLogo from "../assets/image/doc_logo.png";
@@ -13,7 +13,8 @@ import PptLogo from "../assets/image/presentation_logo.png";
 import VideoLogo from "../assets/image/video_logo.png";
 import Sidebar from "../common/Sidebar/Sidebar";
 
-const FileListComponent = ({ files, openPreview }) => {
+const FileListComponent = ({ openPreview }) => {
+  const files = useRecoilValue(fileListState);
   return (
     <Table responsive="md">
       <thead>
@@ -33,7 +34,7 @@ const FileListComponent = ({ files, openPreview }) => {
                 value="yyy"
                 className="file-check mg-right"
               />
-              <div>
+              <div onClick={openPreview} className="point-cursor">
                 <span className="file-logo mg-right">
                   {file.filestyle === "img" ? (
                     <img src={ImgLogo} alt="img-logo" className="logo-image" />
@@ -77,7 +78,6 @@ const MainPageComponent = ({
   clickHighGreen,
   clickHighYellow,
   clickHighNone,
-  files,
 }) => {
   const highlightValue = useRecoilValue(highlightState);
 
@@ -139,7 +139,7 @@ const MainPageComponent = ({
           </Button>
         </div>
         <div className="filelist-block">
-          <FileListComponent files={files} openPreview={openPreview} />
+          <FileListComponent openPreview={openPreview} />
         </div>
       </div>
     </div>

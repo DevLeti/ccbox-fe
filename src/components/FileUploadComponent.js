@@ -1,18 +1,52 @@
-import { React, useState, useRef, useCallback } from "react";
+import { React } from "react";
+import { fileListState } from "../recoil/atom";
+import { useRecoilState } from "recoil";
 import { IoMdClose } from "react-icons/io";
 import "../styles/FileUpload.css";
 import "../styles/ModalStyle.css";
 import uploadIcon from "../assets/image/file_upload.png";
 
+const timestamp = () => {
+  const today = new Date();
+  today.setHours(today.getHours() + 9);
+  return today.toISOString().replace("T", " ").substring(0, 19);
+};
+
 const FileUploadComponent = (props) => {
   // 열기, 닫기를 부모로부터 받아옴
   const { open, close } = props;
+  const [fileList, setFileList] = useRecoilState(fileListState);
 
   const handleChangeFile = (e) => {
     e.preventDefault();
-    console.log(e.target.files[0]);
+    const filename = e.target.files[0].name;
+    const upload = timestamp();
+    const extension = e.target.files[0].name.split(".")[1];
+
+    let filestyle = "";
+    if (extension === "png" || extension === "jpeg" || extension === "jpg") {
+      filestyle = "img";
+    } else if (extension === "mp4" || extension === "avi") {
+      filestyle = "video";
+    } else if (extension === "pptx") {
+      filestyle = "ppt";
+    } else if (extension === "docx") {
+      filestyle = "doc";
+    } else {
+      filestyle = "xlsx";
+    }
+
+    const uploadFile = {
+      id: 6,
+      filename: filename,
+      filestyle: filestyle,
+      upload: upload,
+      access: "본인만",
+    };
+
     let timer = setTimeout(() => {
       if (window.confirm("파일이 정상적으로 업로드되었습니다.")) {
+        setFileList([...fileList, uploadFile]);
         close();
       }
     }, 1000);
