@@ -12,6 +12,7 @@ export const loggedInState = atom({
   default: false,
 });
 
+// highlight state
 export const highlightState = atom({
   key: "highlight",
   default: "highlight-none",

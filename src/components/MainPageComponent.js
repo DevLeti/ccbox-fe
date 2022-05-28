@@ -13,6 +13,60 @@ import PptLogo from "../assets/image/presentation_logo.png";
 import VideoLogo from "../assets/image/video_logo.png";
 import Sidebar from "../common/Sidebar/Sidebar";
 
+const FileListComponent = ({ files, openPreview }) => {
+  return (
+    <Table responsive="md">
+      <thead>
+        <tr>
+          <th>파일명</th>
+          <th>업로드 / 마지막 수정</th>
+          <th>액세스 가능 유저</th>
+        </tr>
+      </thead>
+      <tbody>
+        {files.map((file) => (
+          <tr>
+            <td className="file-name">
+              <input
+                type="checkbox"
+                name="xxx"
+                value="yyy"
+                className="file-check mg-right"
+              />
+              <div>
+                <span className="file-logo mg-right">
+                  {file.filestyle === "img" ? (
+                    <img src={ImgLogo} alt="img-logo" className="logo-image" />
+                  ) : file.filestyle === "video" ? (
+                    <img
+                      src={VideoLogo}
+                      alt="img-logo"
+                      className="logo-image"
+                    />
+                  ) : file.filestyle === "ppt" ? (
+                    <img src={PptLogo} alt="img-logo" className="logo-image" />
+                  ) : file.filestyle === "doc" ? (
+                    <img src={DocLogo} alt="img-logo" className="logo-image" />
+                  ) : (
+                    <img
+                      src={ExcelLogo}
+                      alt="img-logo"
+                      className="logo-image"
+                    />
+                  )}
+                </span>
+                {file.filename}
+              </div>
+            </td>
+            <td>{file.upload}</td>
+            <td>{file.access}</td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  );
+};
+
 const MainPageComponent = ({
   openUpload,
   openCreateDir,
@@ -23,6 +77,7 @@ const MainPageComponent = ({
   clickHighGreen,
   clickHighYellow,
   clickHighNone,
+  files,
 }) => {
   const highlightValue = useRecoilValue(highlightState);
 
@@ -84,105 +139,7 @@ const MainPageComponent = ({
           </Button>
         </div>
         <div className="filelist-block">
-          <Table responsive="md">
-            <thead>
-              <tr>
-                <th>파일명</th>
-                <th>업로드 / 마지막 수정</th>
-                <th>액세스 가능 유저</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="file-name">
-                  <input
-                    type="checkbox"
-                    name="xxx"
-                    value="yyy"
-                    className="file-check mg-right"
-                  />
-                  <span className="file-logo mg-right">
-                    <img src={ImgLogo} alt="img-logo" className="logo-image" />
-                  </span>
-                  logo.png
-                </td>
-                <td>2022-03-28 12:10</td>
-                <td>본인만</td>
-              </tr>
-              <tr>
-                <td className="file-name">
-                  <input
-                    type="checkbox"
-                    name="xxx"
-                    value="yyy"
-                    className="file-check mg-right"
-                  />
-                  <span className="file-logo mg-right" onClick={openPreview}>
-                    <img
-                      src={VideoLogo}
-                      alt="img-logo"
-                      className="logo-image"
-                    />
-                  </span>
-                  lecture1.mp4
-                </td>
-                <td>2022-03-28 12:10</td>
-                <td>유명현, 김지수</td>
-              </tr>
-              <tr>
-                <td className="file-name">
-                  <input
-                    type="checkbox"
-                    name="xxx"
-                    value="yyy"
-                    className="file-check mg-right"
-                  />
-                  <span className="file-logo mg-right">
-                    <img src={PptLogo} alt="img-logo" className="logo-image" />
-                  </span>
-                  mid-term.ppt
-                </td>
-                <td>2022-03-28 12:10</td>
-                <td>유명현 외 5명</td>
-              </tr>
-              <tr>
-                <td className="file-name">
-                  <input
-                    type="checkbox"
-                    name="xxx"
-                    value="yyy"
-                    className="file-check mg-right"
-                  />
-                  <span className="file-logo mg-right">
-                    <img src={DocLogo} alt="img-logo" className="logo-image" />
-                  </span>
-                  spec.docx
-                </td>
-                <td>2022-03-28 12:10</td>
-                <td>유명현 외 5명</td>
-              </tr>
-              <tr>
-                <td className="file-name">
-                  <input
-                    type="checkbox"
-                    name="xxx"
-                    value="yyy"
-                    className="file-check mg-right"
-                  />
-                  <span className="file-logo mg-right">
-                    <img
-                      src={ExcelLogo}
-                      alt="img-logo"
-                      className="logo-image"
-                    />
-                  </span>
-                  액셀연습.xlsx
-                </td>
-                <td>2022-03-28 12:10</td>
-                <td>유명현 외 5명</td>
-              </tr>
-            </tbody>
-          </Table>
+          <FileListComponent files={files} openPreview={openPreview} />
         </div>
       </div>
     </div>
