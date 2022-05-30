@@ -98,6 +98,7 @@ const MainPageComponent = ({
   clickHighNone,
   checkedItemHandler,
   DownloadFile,
+  DeleteFile,
 }) => {
   const highlightValue = useRecoilValue(highlightState);
 
@@ -157,7 +158,7 @@ const MainPageComponent = ({
           <Button variant="light" onClick={openShareFile}>
             파일공유
           </Button>
-          <Button variant="light" className="button-align">
+          <Button variant="light" className="button-align" onClick={DeleteFile}>
             삭제 <BiTrashAlt className="icon-margin" />
           </Button>
         </div>

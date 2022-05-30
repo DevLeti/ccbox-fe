@@ -1,5 +1,9 @@
 import { React, useState } from "react";
-import { highlightState, checkedFileState } from "../recoil/atom";
+import {
+  highlightState,
+  checkedFileState,
+  fileListState,
+} from "../recoil/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import MainPageComponent from "../components/MainPageComponent";
@@ -104,6 +108,18 @@ const MainPageContainer = () => {
     }
   };
 
+  // file 삭제
+  const [fileList, setFileList] = useRecoilState(fileListState);
+
+  const DeleteFile = () => {
+    if (window.confirm("선택한 파일을 삭제하시겠습니까?")) {
+      let timer = setTimeout(() => {
+        const newFileList = fileList.filter((file) => file.id < 6);
+        setFileList(newFileList);
+      }, 1000);
+    }
+  };
+
   return (
     <>
       <MainPageComponent
@@ -118,6 +134,7 @@ const MainPageContainer = () => {
         clickHighNone={clickHighNone}
         checkedItemHandler={checkedItemHandler}
         DownloadFile={DownloadFile}
+        DeleteFile={DeleteFile}
       />
       <FileUploadComponent open={uploadOpen} close={closeUpload} />
       <CreateDirComponent open={createDirOpen} close={closeCreateDir} />
