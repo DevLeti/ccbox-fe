@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { highlightState, checkedFileState } from "../recoil/atom";
 import { useRecoilState } from "recoil";
+import axios from "axios";
 import MainPageComponent from "../components/MainPageComponent";
 import FileUploadComponent from "../components/FileUploadComponent";
 import CreateDirComponent from "../components/CreateDirComponent";
@@ -79,6 +80,23 @@ const MainPageContainer = () => {
     console.log(checkedItems);
   };
 
+  // click시 파일 다운로드 (현재 mp4 파일로 통일)
+  const DownloadFile = () => {
+    axios({
+      url: "https://d2bg6z9x0yg9ip.cloudfront.net/file_example_MP4_640_3MG.mp4",
+      method: "GET",
+      responseType: "blob",
+    }).then((response) => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "lecture1.mp4");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
     <>
       <MainPageComponent
@@ -92,6 +110,7 @@ const MainPageContainer = () => {
         clickHighYellow={clickHighYellow}
         clickHighNone={clickHighNone}
         checkedItemHandler={checkedItemHandler}
+        DownloadFile={DownloadFile}
       />
       <FileUploadComponent open={uploadOpen} close={closeUpload} />
       <CreateDirComponent open={createDirOpen} close={closeCreateDir} />

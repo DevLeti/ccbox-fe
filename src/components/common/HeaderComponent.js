@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { loggedInState } from "../../recoil/atom";
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../../assets/image/logo.png";
-import "./Header.css";
+import "../../styles/Header.css";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const NonUserButton = () => {
@@ -48,7 +48,7 @@ const Register = () => {
   );
 };
 
-const Header = () => {
+const HeaderComponent = () => {
   const loggedIn = useRecoilValue(loggedInState);
   return (
     // py-0~5 높이 조절
@@ -75,4 +75,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderComponent;

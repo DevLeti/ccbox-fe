@@ -11,7 +11,7 @@ import ExcelLogo from "../assets/image/excel_logo.png";
 import ImgLogo from "../assets/image/image_logo.png";
 import PptLogo from "../assets/image/presentation_logo.png";
 import VideoLogo from "../assets/image/video_logo.png";
-import Sidebar from "../common/Sidebar/Sidebar";
+import Sidebar from "../pages/common/Sidebar";
 
 const CheckFileComponent = ({ filename, fileId, checkedItemHandler }) => {
   const [bChecked, setChecked] = useState(false);
@@ -31,7 +31,11 @@ const CheckFileComponent = ({ filename, fileId, checkedItemHandler }) => {
   );
 };
 
-const FileListComponent = ({ openPreview, checkedItemHandler }) => {
+const FileListComponent = ({
+  openPreview,
+  checkedItemHandler,
+  DownloadFile,
+}) => {
   const files = useRecoilValue(fileListState);
 
   return (
@@ -44,8 +48,8 @@ const FileListComponent = ({ openPreview, checkedItemHandler }) => {
         </tr>
       </thead>
       <tbody>
-        {files.map((file) => (
-          <tr>
+        {files.map((file, index) => (
+          <tr key={index}>
             <td className="file-name">
               <CheckFileComponent
                 filename={file.filename}
@@ -74,7 +78,7 @@ const FileListComponent = ({ openPreview, checkedItemHandler }) => {
                     />
                   )}
                 </span>
-                {file.filename}
+                <span>{file.filename}</span>
               </div>
             </td>
             <td>{file.upload}</td>
@@ -97,6 +101,7 @@ const MainPageComponent = ({
   clickHighYellow,
   clickHighNone,
   checkedItemHandler,
+  DownloadFile,
 }) => {
   const highlightValue = useRecoilValue(highlightState);
 
@@ -161,6 +166,7 @@ const MainPageComponent = ({
           <FileListComponent
             openPreview={openPreview}
             checkedItemHandler={checkedItemHandler}
+            DownloadFile={DownloadFile}
           />
         </div>
       </div>

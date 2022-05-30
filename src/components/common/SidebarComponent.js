@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState, React } from "react";
+import { React } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { highlightState } from "../../recoil/atom";
 import { useRecoilValue } from "recoil";
-import "./Sidebar.css";
+import "../../styles/Sidebar.css";
 
-const Sidebar = () => {
+const SidebarComponent = () => {
   const highlightValue = useRecoilValue(highlightState);
 
   return (
@@ -17,4 +17,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarComponent;
