@@ -80,21 +80,27 @@ const MainPageContainer = () => {
     console.log(checkedItems);
   };
 
-  // click시 파일 다운로드 (현재 mp4 파일로 통일)
+  // click시 파일 다운로드 (현재 txt 파일로 통일)
   const DownloadFile = () => {
-    axios({
-      url: "https://d2bg6z9x0yg9ip.cloudfront.net/file_example_MP4_640_3MG.mp4",
-      method: "GET",
-      responseType: "blob",
-    }).then((response) => {
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "lecture1.mp4");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
+    if (window.confirm("선택한 파일을 다운로드 하시겠습니까?")) {
+      // https://cors-anywhere.herokuapp.com/
+      axios({
+        url: "https://devleti.s3.ap-northeast-2.amazonaws.com/test.txt",
+        method: "GET",
+        responseType: "blob",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "test.txt");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
   };
 
   return (

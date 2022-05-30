@@ -31,11 +31,7 @@ const CheckFileComponent = ({ filename, fileId, checkedItemHandler }) => {
   );
 };
 
-const FileListComponent = ({
-  openPreview,
-  checkedItemHandler,
-  DownloadFile,
-}) => {
+const FileListComponent = ({ openPreview, checkedItemHandler }) => {
   const files = useRecoilValue(fileListState);
 
   return (
@@ -155,6 +151,9 @@ const MainPageComponent = ({
             폴더생성
           </Button>
           <span className="border-line">|</span>
+          <Button variant="light" onClick={DownloadFile}>
+            다운로드
+          </Button>
           <Button variant="light" onClick={openShareFile}>
             파일공유
           </Button>
@@ -166,7 +165,6 @@ const MainPageComponent = ({
           <FileListComponent
             openPreview={openPreview}
             checkedItemHandler={checkedItemHandler}
-            DownloadFile={DownloadFile}
           />
         </div>
       </div>

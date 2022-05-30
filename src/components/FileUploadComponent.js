@@ -30,7 +30,7 @@ const FileUploadComponent = (props) => {
       filestyle = "video";
     } else if (extension === "pptx") {
       filestyle = "ppt";
-    } else if (extension === "docx") {
+    } else if (extension === "docx" || extension === "txt") {
       filestyle = "doc";
     } else {
       filestyle = "xlsx";
