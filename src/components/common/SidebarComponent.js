@@ -10,12 +10,19 @@ const SidebarComponent = () => {
 
   return (
     <div className="sidebar-background">
-      {folderlistValue.map((folder, index) => (
-        <div className={"directory clicked " + highlightValue} key={index}>
-          <IoIosArrowForward className="directory-icon" />
-          {folder.foldername}
-        </div>
-      ))}
+      {folderlistValue.map((folder, index) =>
+        folder.id === 1 ? (
+          <div className={"directory clicked " + highlightValue} key={index}>
+            <IoIosArrowForward className="directory-icon" />
+            {folder.foldername}
+          </div>
+        ) : (
+          <div className={"directory clicked mg-left-1"} key={index}>
+            <IoIosArrowDown className="directory-icon" />
+            {folder.foldername}
+          </div>
+        )
+      )}
     </div>
   );
 };
