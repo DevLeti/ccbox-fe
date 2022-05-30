@@ -1,98 +1,143 @@
-.main-layout{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
+.fade-in-box {
+  display: inline-block;
+  animation: fadein 3s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-layout {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .main-block {
-    width: 82%;
-    height: 100vh;
-    padding: 1.5rem;
+  width: 82%;
+  height: 100vh;
+  padding: 1.5rem;
 }
 
 .path-block {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .directory-list {
-    margin-right: 2rem;
+  margin-right: 2rem;
 }
 
 .directory-path {
-    color: #4c4c4c;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #4c4c4c;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .dir-current {
-    background-color: rgba(77, 175, 255, 0.25);
-    padding: 0.3rem 0.1rem;
+  padding: 0.2rem 0.3rem;
+}
+
+.highlight-red {
+  background-color: #ffcbcb;
+}
+
+.highlight-blue {
+  background-color: #dae4ff;
+}
+
+.highlight-green {
+  background-color: #d2eccc;
+}
+
+.highlight-yellow {
+  background-color: #ffe69c;
+}
+
+.highlight-none {
+  background-color: none;
+}
+
+.btn-styles {
+  border: none;
+  background: none;
 }
 
 .highlight-block {
-    background-color: #F7F5F1;
-    width: 10rem;
-    padding: 0.3rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  background-color: #f7f5f1;
+  width: 10rem;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .high-red {
-    color: #FF0000;
+  color: #ff4949;
 }
 
 .high-blue {
-    color: #0000FF;
+  color: #4343ff;
 }
 
 .high-green {
-    color: #019B01;
+  color: #2db22d;
 }
 
 .high-yellow {
-    color: #ffc900;
+  color: #ffd124;
+}
+
+.high-white {
+  color: #ffffff;
 }
 
 .buttons-block {
-    margin-top: 1rem;
-    display: flex;
-    width: 25rem;
-    justify-content: space-between;
+  margin-top: 1rem;
+  display: flex;
+  width: 30rem;
+  justify-content: space-between;
 }
 
 .border-line {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .button-align {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .icon-margin {
-    margin-left: 0.3rem;
+  margin-left: 0.3rem;
 }
 
 .filelist-block {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .file-name {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .mg-right {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .file-check {
-    zoom: 1.4;
+  zoom: 1.4;
 }
 
 .logo-image {
-    width: 1rem;
+  width: 1rem;
+}
+
+.point-cursor {
+  cursor: pointer;
 }

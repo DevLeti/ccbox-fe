@@ -1,0 +1,48 @@
+.sidebar-background {
+  width: 18%;
+  height: 100vh;
+  padding: 1rem;
+  background-color: #f7f5f1;
+}
+
+.directory {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.directory-icon {
+  width: 1.7rem;
+}
+
+.mg-left-1 {
+  margin-left: 1.2rem;
+}
+
+.mg-left-2 {
+  margin-left: 2.4rem;
+}
+
+.clicked {
+  height: 1.7rem;
+}
+
+.highlight-red {
+  background-color: #ffcbcb;
+}
+
+.highlight-blue {
+  background-color: #dae4ff;
+}
+
+.highlight-green {
+  background-color: #d2eccc;
+}
+
+.highlight-yellow {
+  background-color: #ffe69c;
+}
+
+.highlight-none {
+  background-color: none;
+}

@@ -2,7 +2,14 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "../styles/Login.css";
 
-const LoginComponent = ({id, password, validated, onChangeId, onChangePassword, handleSubmit}) => {
+const LoginComponent = ({
+  id,
+  password,
+  validated,
+  onChangeId,
+  onChangePassword,
+  handleSubmit,
+}) => {
   return (
     <div className="login">
       <h2 className="login-title">로그인</h2>

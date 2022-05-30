@@ -1,8 +1,8 @@
-import React from 'react';
-import NonUserMainComponent from '../components/NonUserMainComponent';
+import React from "react";
+import NonUserMainComponent from "../components/NonUserMainComponent";
 
 const NonUserMainContainer = () => {
-    return <NonUserMainComponent />
+  return <NonUserMainComponent />;
 };
 
 export default NonUserMainContainer;

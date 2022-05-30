@@ -1,12 +1,40 @@
-import React from "react";
+import { React, useState } from "react";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { checkedFileState, fileListState } from "../recoil/atom";
 import { IoMdClose } from "react-icons/io";
 import "../styles/ShareFile.css";
 import "../styles/ModalStyle.css";
 import { Button } from "react-bootstrap";
 
-const ShareFileComponent = (props) => {
-  // 열기, 닫기를 부모로부터 받아옴
-  const { open, close } = props;
+const ShareFileComponent = ({ open, close }) => {
+  const [name, setName] = useState("");
+  const checkedFiles = useRecoilValue(checkedFileState);
+  const [fileList, setFileList] = useRecoilState(fileListState);
+
+  const changeShareUser = () => {
+    let listCopy = [];
+    fileList.map((file) => {
+      if (checkedFiles.has(file.id)) {
+        listCopy.push({
+          id: file.id,
+          filename: file.filename,
+          filestyle: file.filestyle,
+          upload: file.upload,
+          access: "유명현 / " + name,
+        });
+      } else {
+        listCopy.push(file);
+      }
+    });
+
+    setFileList(listCopy);
+
+    let timer = setTimeout(() => {
+      if (window.confirm("공유 대상자가 수정되었습니다.")) {
+        close();
+      }
+    }, 1000);
+  };
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
@@ -22,10 +50,15 @@ const ShareFileComponent = (props) => {
           <hr />
           <div className="create-section">
             <form>
-              <input placeholder="유저명" className="input-box"></input>
-              {/* <div className="share-user-list">공유 유저 리스트</div> */}
+              <input
+                placeholder="유저명"
+                className="input-box"
+                onChange={(e) => setName(e.target.value)}
+              ></input>
               <div className="create-button">
-                <Button variant="primary">파일공유</Button>
+                <Button variant="primary" onClick={changeShareUser}>
+                  파일공유
+                </Button>
               </div>
             </form>
           </div>
