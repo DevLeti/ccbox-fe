@@ -90,6 +90,7 @@ const MainPageContainer = () => {
         responseType: "blob",
         headers: {
           "Access-Control-Allow-Origin": "*",
+          Authorization: " ",
         },
       }).then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
