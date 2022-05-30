@@ -54,6 +54,12 @@ export const fileListState = atom({
   ],
 });
 
+// folder list state
+export const folderListState = atom({
+  key: "folderlist",
+  default: [{ id: 1, foldername: "Root" }],
+});
+
 // checked file id state
 export const checkedFileState = atom({
   key: "checkedfile",
