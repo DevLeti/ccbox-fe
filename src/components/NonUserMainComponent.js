@@ -41,7 +41,7 @@ const MainMiddle = () => {
         <div className="feature">
           <div className="feature-img-title">
             <img src={artist} className="feature-img" alt="color_highlight" />
-            <div className="feature-title">파일 공유</div>
+            <div className="feature-title">컬러 하이라이트</div>
           </div>
           <div className="description">
             <span>파일과 폴더를</span>
